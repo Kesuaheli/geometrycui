@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "geometrycui",
+  "version": "${version}",
+  "name": "Geometry CUI",
+  "description": "A client side ingame renderer (Client User Interface) for geometric shapes",
+  "authors": [
+    "Kesuaheli"
+  ],
+  "contact": {
+    "website": "kesuaheli.de",
+    "repo": "https://github.com/kesuaheli/geometrycui"
+  },
+  "license": "MIT",
+  "icon": "assets/geometrycui/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "de.kesuaheli.geometrycui.client.GeometryCUIClient"
+    ],
+    "main": [
+      "de.kesuaheli.geometrycui.GeometryCUI"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
