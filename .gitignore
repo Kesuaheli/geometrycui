@@ -28,3 +28,6 @@ gradle-app.setting
 .gradletasknamecache
 .project
 .classpath
+
+# Other
+run
