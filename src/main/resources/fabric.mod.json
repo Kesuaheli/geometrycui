@@ -17,9 +17,6 @@
   "environment": "client",
   "entrypoints": {
     "client": [
-      "de.kesuaheli.geometrycui.client.GeometryCUIClient"
-    ],
-    "main": [
       "de.kesuaheli.geometrycui.GeometryCUI"
     ]
   },
