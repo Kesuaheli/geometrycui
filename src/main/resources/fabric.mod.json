@@ -25,7 +25,8 @@
     "fabric": "*",
     "minecraft": "${minecraft_version}",
 
-    "modmenu": ">=${modmenu_version}"
+    "modmenu": ">=${modmenu_version}",
+    "clientarguments": ">=${clientarguments_version}"
   },
   "custom": {
     "modmenu": {

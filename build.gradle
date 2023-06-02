@@ -13,6 +13,7 @@ repositories {
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html
     // for more information about repositories.
     maven {url "https://maven.terraformersmc.com/"}
+    maven {url "https://maven.xpple.dev/maven2"}
 }
 
 dependencies {
@@ -25,6 +26,7 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
     modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
+    modImplementation "dev.xpple:clientarguments:${project.clientarguments_version}"
     }
 
 processResources {
@@ -37,7 +39,8 @@ processResources {
         expand "version": project.version,
                 "minecraft_version": project.minecraft_version,
                 "loader_version": project.loader_version,
-                "modmenu_version": project.modmenu_version
+                "modmenu_version": project.modmenu_version,
+                "clientarguments_version": project.clientarguments_version
     }
 }
 

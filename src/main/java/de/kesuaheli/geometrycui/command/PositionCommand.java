@@ -2,14 +2,11 @@ package de.kesuaheli.geometrycui.command;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
-import de.kesuaheli.geometrycui.GeometryCUI;
-import de.kesuaheli.geometrycui.Helper;
-import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
-import net.minecraft.command.argument.DefaultPosArgument;
-import net.minecraft.command.argument.PosArgument;
-import net.minecraft.command.argument.Vec3ArgumentType;
 import net.minecraft.text.Text;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.BlockPos;
+import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
+import de.kesuaheli.geometrycui.Helper;
+import dev.xpple.clientarguments.arguments.CBlockPosArgumentType;
 
 import static net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.argument;
 import static net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.literal;
@@ -17,13 +14,14 @@ import static net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.lit
 public class PositionCommand {
     public static void register(CommandDispatcher<FabricClientCommandSource> dispatcher) {
         dispatcher.register(literal("gpos")
-                .then(argument("position", Vec3ArgumentType.vec3()).executes(PositionCommand::executePosition))
+                .then(argument("position", CBlockPosArgumentType.blockPos()).executes(PositionCommand::executePosition))
         );
     }
 
     private static int executePosition(CommandContext<FabricClientCommandSource> ctx) {
-        GeometryCUI.LOGGER.info("Command executed");
-        Helper.sendMessage("Command executed");
+        BlockPos position = CBlockPosArgumentType.getCBlockPos(ctx, "position");
+        Helper.sendMessage(Text.translatable("geometrycui.command.position.set", position.toString()));
+
         return 0;
     }
 }
