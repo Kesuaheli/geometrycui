@@ -29,6 +29,7 @@ jobs:
 
       - name: Get version
         run: |
+          chmod +x ./gradle.properties
           ./gradle.properties
           echo "mod_version=$mod_version" >> $GITHUB_ENV
           echo "archives_base_name=$archives_base_name" >> $GITHUB_ENV
