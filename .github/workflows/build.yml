@@ -29,10 +29,9 @@ jobs:
 
       - name: Get version
         run: |
-          chmod +x ./gradle.properties
-          ./gradle.properties
-          echo "mod_version=$mod_version" >> $GITHUB_ENV
-          echo "archives_base_name=$archives_base_name" >> $GITHUB_ENV
+          mod_version=$(grep "mod_version" gradle.properties | cut -d '=' -f2)
+          echo "mod_version="$mod_version
+          echo "mod_version="$mod_version >> $GITHUB_ENV
 
       - name: Save artifact
         uses: actions/upload-artifact@v3.1.2
