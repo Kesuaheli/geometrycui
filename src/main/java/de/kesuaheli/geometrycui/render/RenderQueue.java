@@ -11,7 +11,7 @@ public class RenderQueue {
     public static void render(MatrixStack matrices) {
         Renderer3d.renderThroughWalls();
 
-        List<Shape> list = Session.getInstance().render();
-        list.forEach(shape -> shape.render(matrices));
+        List<RenderShape> list = Session.getInstance().render();
+        list.forEach(renderShape -> renderShape.render(matrices));
     }
 }

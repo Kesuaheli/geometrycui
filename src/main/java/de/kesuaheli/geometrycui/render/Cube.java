@@ -7,7 +7,7 @@ import net.minecraft.util.math.Vec3d;
 
 import java.awt.*;
 
-public class Cube extends Shape {
+public class Cube extends RenderShape {
 
     private final Vec3d start;
     private final double size;

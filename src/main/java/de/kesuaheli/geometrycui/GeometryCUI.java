@@ -1,9 +1,12 @@
 package de.kesuaheli.geometrycui;
 
 import com.mojang.brigadier.CommandDispatcher;
+import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import de.kesuaheli.geometrycui.command.PositionCommand;
+import de.kesuaheli.geometrycui.command.ShapeCommand;
 import de.kesuaheli.geometrycui.render.RenderQueue;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderContext;
@@ -24,7 +27,12 @@ public class GeometryCUI implements ClientModInitializer {
     }
 
     private void registerCommands(CommandDispatcher<FabricClientCommandSource> dispatcher, CommandRegistryAccess registryAccess) {
-        PositionCommand.register(dispatcher);
+        LiteralArgumentBuilder<FabricClientCommandSource> cmd = ClientCommandManager.literal("geometrycui");
+
+        cmd.then(PositionCommand.register());
+        cmd.then(ShapeCommand.register());
+
+        dispatcher.register(cmd);
     }
 
     private void registerRenderer(WorldRenderContext ctx) {

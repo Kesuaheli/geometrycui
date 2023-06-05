@@ -6,7 +6,7 @@ import net.minecraft.util.math.Vec3d;
 
 import java.awt.*;
 
-public class Line extends Shape {
+public class Line extends RenderShape {
 
     private final Vec3d start;
     private final Vec3d end;

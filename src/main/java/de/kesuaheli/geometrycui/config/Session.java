@@ -1,7 +1,8 @@
 package de.kesuaheli.geometrycui.config;
 
+import de.kesuaheli.geometrycui.geometry.Shape;
 import de.kesuaheli.geometrycui.render.Cube;
-import de.kesuaheli.geometrycui.render.Shape;
+import de.kesuaheli.geometrycui.render.RenderShape;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.server.integrated.IntegratedServer;
 import net.minecraft.util.WorldSavePath;
@@ -16,7 +17,8 @@ import java.util.List;
 public class Session {
 
     private BlockPos origin;
-    
+    private Shape shape;
+
     private static final HashMap<String, Session> sessions = new HashMap<>();
     
     public static Session getInstance() {
@@ -48,8 +50,8 @@ public class Session {
         return scope + "/" + id;
     }
 
-    public List<Shape> render() {
-        List<Shape> list = new ArrayList<>();
+    public List<RenderShape> render() {
+        List<RenderShape> list = new ArrayList<>();
 
         if (this.origin != null) list.add(new Cube(this.origin, 1, Color.GREEN));
 
@@ -63,7 +65,18 @@ public class Session {
     public @Nullable BlockPos getOrigin() {
         return this.origin;
     }
-    public void removeOrigin() {
+    public void clearOrigin() {
         this.origin = null;
+    }
+
+    public void setShape(Shape shape) {
+        this.shape = shape;
+    }
+
+    public @Nullable Shape getShape() {
+        return this.shape;
+    }
+    public void clearShape() {
+        this.shape = null;
     }
 }
