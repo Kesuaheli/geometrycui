@@ -18,6 +18,8 @@ public class Session {
 
     private BlockPos origin;
     private Shape shape;
+    private int sizeX;
+    private int sizeZ;
 
     private static final HashMap<String, Session> sessions = new HashMap<>();
     
@@ -29,7 +31,6 @@ public class Session {
         }
         return session;
     }
-
     private static String getSessionID() {
         MinecraftClient mc = MinecraftClient.getInstance();
         String scope, id = "";
@@ -61,7 +62,6 @@ public class Session {
     public void setOrigin(BlockPos pos) {
         this.origin = pos;
     }
-
     public @Nullable BlockPos getOrigin() {
         return this.origin;
     }
@@ -72,11 +72,30 @@ public class Session {
     public void setShape(Shape shape) {
         this.shape = shape;
     }
-
     public @Nullable Shape getShape() {
         return this.shape;
     }
     public void clearShape() {
         this.shape = null;
+    }
+
+    public boolean setSize(int sizeX, int sizeZ) {
+        if (sizeX <= 0 || sizeZ <= 0) {
+            return false;
+        }
+
+        this.sizeX = sizeX;
+        this.sizeZ = sizeZ;
+        return true;
+    }
+    public int getSizeX() {
+        return this.sizeX;
+    }
+    public int getSizeZ() {
+        return this.sizeZ;
+    }
+    public void clearSize() {
+        this.sizeX = 0;
+        this.sizeZ = 0;
     }
 }

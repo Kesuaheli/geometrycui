@@ -4,6 +4,7 @@ import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import de.kesuaheli.geometrycui.command.PositionCommand;
 import de.kesuaheli.geometrycui.command.ShapeCommand;
+import de.kesuaheli.geometrycui.command.SizeCommand;
 import de.kesuaheli.geometrycui.render.RenderQueue;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
@@ -31,6 +32,7 @@ public class GeometryCUI implements ClientModInitializer {
 
         cmd.then(PositionCommand.register());
         cmd.then(ShapeCommand.register());
+        cmd.then(SizeCommand.register());
 
         dispatcher.register(cmd);
     }

@@ -6,5 +6,10 @@
   "geometrycui.command.shape.clear": "§dCleared shape!",
   "geometrycui.command.shape.get": "§6Your shape is currently set to %s.",
   "geometrycui.command.shape.null": "§cYour shape is currently not set!",
-  "geometrycui.command.shape.set": "§aSet shape to %s."
+  "geometrycui.command.shape.set": "§aSet shape to %s.",
+  "geometrycui.command.size.clear": "§dCleared size!",
+  "geometrycui.command.size.get": "§6Your size is currently set to %s, %s.",
+  "geometrycui.command.size.null": "§cYour size is currently not set!",
+  "geometrycui.command.size.set": "§aSet size to %s, %s.",
+  "geometrycui.command.size.set.invalid": "§cSize of a shape must be at least 1!"
 }
