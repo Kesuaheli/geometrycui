@@ -4,6 +4,7 @@ import net.minecraft.util.StringIdentifiable;
 
 public enum Shape implements StringIdentifiable {
     SQUARE,
+    RECTANGLE,
     CIRCLE,
     CUBOID,
     CYLINDER;
@@ -12,6 +13,7 @@ public enum Shape implements StringIdentifiable {
     public String toString() {
         return switch (this) {
             case SQUARE -> "Square";
+            case RECTANGLE -> "Rectangle";
             case CIRCLE -> "Circle";
             case CUBOID -> "Cuboid";
             case CYLINDER -> "Cylinder";

@@ -1,12 +1,13 @@
 package de.kesuaheli.geometrycui.config;
 
 import de.kesuaheli.geometrycui.geometry.Shape;
-import de.kesuaheli.geometrycui.render.Cube;
-import de.kesuaheli.geometrycui.render.RenderShape;
+import de.kesuaheli.geometrycui.render.*;
+import de.kesuaheli.geometrycui.render.Cuboid;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.server.integrated.IntegratedServer;
 import net.minecraft.util.WorldSavePath;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec2f;
 import org.jetbrains.annotations.Nullable;
 
 import java.awt.*;
@@ -54,7 +55,16 @@ public class Session {
     public List<RenderShape> render() {
         List<RenderShape> list = new ArrayList<>();
 
-        if (this.origin != null) list.add(new Cube(this.origin, 1, Color.GREEN));
+        if (this.origin == null) {
+            return list;
+        }
+
+        list.add(new Cube(this.origin, 1, Color.GREEN));
+
+        if (this.shape != null) switch (this.shape) {
+            case SQUARE -> list.add(new Cuboid(this.origin, this.sizeX, 1, this.sizeX, Color.RED));
+            case RECTANGLE -> list.add(new Cuboid(this.origin, this.sizeX, 1, this.sizeZ, Color.RED));
+        }
 
         return list;
     }
