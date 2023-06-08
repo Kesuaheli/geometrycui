@@ -17,14 +17,8 @@ public class Line extends RenderShape {
         this.end = end;
         this.color = color;
     }
-    public Line(Vec3d start, Vec3d end, int red, int green, int blue, int alpha) {
-        this(start, end, new Color(red, green, blue, alpha));
-    }
-    public Line(Vec3d start, Vec3d end, int red, int green, int blue) {
-        this(start, end, new Color(red, green, blue));
-    }
-    public Line(Vec3d start, Vec3d end) {
-        this(start, end, Color.WHITE);
+    public Line(double startX, double startY, double startZ, double endX, double endY, double endZ, Color color) {
+        this(new Vec3d(startX, startY, startZ), new Vec3d(endX, endY, endZ), color);
     }
 
     @Override
