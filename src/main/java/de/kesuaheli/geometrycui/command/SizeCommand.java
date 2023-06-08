@@ -28,11 +28,18 @@ public class SizeCommand {
     private static int executeSet(CommandContext<FabricClientCommandSource> ctx) {
         NumberRange.IntRange rangeX = CNumberRangeArgumentType.IntRangeArgumentType.getCRangeArgument(ctx, "sizeX");
         NumberRange.IntRange rangeZ = CNumberRangeArgumentType.IntRangeArgumentType.getCRangeArgument(ctx, "sizeZ");
+        int sizeX, sizeZ;
+        try {
+            sizeX = rangeX.getMin();
+            sizeZ = rangeZ.getMin();
+        } catch (NullPointerException e) {
+            return 1;
+        }
 
-        if (!Session.getInstance().setSize(6, 9)) {
+        if (!Session.getInstance().setSize(sizeX, sizeZ)) {
             Helper.sendMessage(Text.translatable("geometrycui.command.size.set.invalid"));
         } else {
-            Helper.sendMessage(Text.translatable("geometrycui.command.size.set", rangeX, rangeZ));
+            Helper.sendMessage(Text.translatable("geometrycui.command.size.set", sizeX, sizeZ));
         }
         return 0;
     }
