@@ -15,6 +15,7 @@ repositories {
     maven {url "https://maven.terraformersmc.com/"}
     maven {url "https://maven.xpple.dev/maven2"}
     maven {url "https://jitpack.io"}
+    maven {url  "https://server.bbkr.space/artifactory/libs-release"}
 }
 
 dependencies {
@@ -29,6 +30,7 @@ dependencies {
     modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
     modImplementation "dev.xpple:clientarguments:${project.clientarguments_version}"
     include modImplementation("com.github.0x3C50:Renderer:${project.renderer_version}")
+    modImplementation include("io.github.cottonmc:LibGui:${project.libgui_version}")
     }
 
 processResources {
