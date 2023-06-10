@@ -28,7 +28,7 @@ dependencies {
 
     modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
     modImplementation "dev.xpple:clientarguments:${project.clientarguments_version}"
-    include modImplementation("com.github.0x3C50:Renderer:master-SNAPSHOT")
+    include modImplementation("com.github.0x3C50:Renderer:${project.renderer_version}")
     }
 
 processResources {

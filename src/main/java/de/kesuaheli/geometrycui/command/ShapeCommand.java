@@ -3,7 +3,7 @@ package de.kesuaheli.geometrycui.command;
 import com.mojang.brigadier.builder.ArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
 import de.kesuaheli.geometrycui.Helper;
-import de.kesuaheli.geometrycui.command.arguments.CEnumArgumentType;
+import dev.xpple.clientarguments.arguments.CEnumArgumentType;
 import de.kesuaheli.geometrycui.config.Session;
 import de.kesuaheli.geometrycui.geometry.Shape;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
