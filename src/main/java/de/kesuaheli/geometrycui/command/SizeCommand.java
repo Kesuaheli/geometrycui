@@ -36,11 +36,7 @@ public class SizeCommand {
             return 1;
         }
 
-        if (!Session.getInstance().setSize(sizeX, sizeZ)) {
-            Helper.sendMessage(Text.translatable("geometrycui.command.size.set.invalid"));
-        } else {
-            Helper.sendMessage(Text.translatable("geometrycui.command.size.set", sizeX, sizeZ));
-        }
+        Session.getInstance().setSize(sizeX, sizeZ);
         return 0;
     }
 

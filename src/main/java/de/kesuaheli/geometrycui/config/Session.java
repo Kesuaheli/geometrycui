@@ -1,9 +1,11 @@
 package de.kesuaheli.geometrycui.config;
 
+import de.kesuaheli.geometrycui.Helper;
 import de.kesuaheli.geometrycui.geometry.Shape;
 import de.kesuaheli.geometrycui.render.*;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.server.integrated.IntegratedServer;
+import net.minecraft.text.Text;
 import net.minecraft.util.WorldSavePath;
 import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.Nullable;
@@ -87,14 +89,33 @@ public class Session {
         this.shape = null;
     }
 
-    public boolean setSize(int sizeX, int sizeZ) {
+    public void setSize(int sizeX, int sizeZ) {
         if (sizeX <= 0 || sizeZ <= 0) {
-            return false;
+            Helper.sendMessage(Text.translatable("geometrycui.command.size.set.invalid"));
+            return;
         }
 
         this.sizeX = sizeX;
         this.sizeZ = sizeZ;
-        return true;
+        Helper.sendMessage(Text.translatable("geometrycui.command.size.set", this.sizeX, this.sizeZ));
+    }
+    public void setSizeX(int sizeX) {
+        if (sizeX <= 0) {
+            Helper.sendMessage(Text.translatable("geometrycui.command.size.set.invalid"));
+            return;
+        }
+
+        this.sizeX = sizeX;
+        Helper.sendMessage(Text.translatable("geometrycui.command.size.set", this.sizeX, this.sizeZ));
+    }
+    public void setSizeZ(int sizeZ) {
+        if (sizeZ <= 0) {
+            Helper.sendMessage(Text.translatable("geometrycui.command.size.set.invalid"));
+            return;
+        }
+
+        this.sizeZ = sizeZ;
+        Helper.sendMessage(Text.translatable("geometrycui.command.size.set", this.sizeX, this.sizeZ));
     }
     public int getSizeX() {
         return this.sizeX;
