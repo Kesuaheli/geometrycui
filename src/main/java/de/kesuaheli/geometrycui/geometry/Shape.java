@@ -1,5 +1,7 @@
 package de.kesuaheli.geometrycui.geometry;
 
+import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.StringIdentifiable;
 
 public enum Shape implements StringIdentifiable {
@@ -23,5 +25,13 @@ public enum Shape implements StringIdentifiable {
     @Override
     public String asString() {
         return this.toString().toLowerCase();
+    }
+
+    public Text toText() {
+        return Text.of(this.toString());
+    }
+
+    public Identifier getImage() {
+        return new Identifier("geometrycui", "textures/gui/shape/" + this.asString() + ".png");
     }
 }
